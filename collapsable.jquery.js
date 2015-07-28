@@ -10,11 +10,17 @@
     }, options);
 
     var _show = function(){
-      $(this).removeClass('collapsed').css('max-height', $(this).children().height());
+      $(this)
+        .removeClass('collapsed')
+        .css('max-height', $(this).children().height())
+        .trigger('uncollapse');
     };
 
     var _hide = function(){
-      $(this).addClass('collapsed').css('max-height', config.maxHeight);
+      $(this)
+        .addClass('collapsed')
+        .css('max-height', config.maxHeight)
+        .trigger('collapse');
     };
 
     var _toggle = function(){
