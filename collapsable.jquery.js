@@ -6,7 +6,8 @@
   $.fn.collapsable = function(options){
     var config = $.extend({
       maxHeight: '10em',
-      transitions: true
+      transitions: true,
+      onChange: function(){}
     }, options);
 
     var _show = function(){
@@ -14,6 +15,8 @@
         .removeClass('collapsed')
         .css('max-height', $(this).children().height())
         .trigger('uncollapse');
+
+      config.onChange();
     };
 
     var _hide = function(){
@@ -21,6 +24,8 @@
         .addClass('collapsed')
         .css('max-height', config.maxHeight)
         .trigger('collapse');
+
+      config.onChange();
     };
 
     var _toggle = function(){
@@ -35,7 +40,7 @@
 
     this.each(function(){
       var $this = $(this)
-        , full_height = $this.height();
+      , full_height = $this.height();
 
       if($this.data('collapsable')){
         return;
