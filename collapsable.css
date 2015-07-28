@@ -2,6 +2,7 @@
 
 .collapsable {
   transition: max-height 0.2s;
+  overflow: hidden;
 }
 
 .collapsed {
