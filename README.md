@@ -18,3 +18,9 @@ $('div.lotsoftext').collapsable({ maxHeight: '4.5em' });
   onChange: function(){}
 }
 ```
+
+### Events:
+```
+$('div.collapsable').on('collapse', function(){});
+$('div.collapsable').on('uncollapse', function(){});
+```
